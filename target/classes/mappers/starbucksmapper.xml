@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.starbucks.persistence.StarbucksDAO">
+
+	<select id="getTime" resultType="String">
+		select now()
+	</select>
+
+
+	<select id="getlist" parameterType="org.starbucks.domain.Criteria" resultType="org.starbucks.domain.StarbucksVO">
+	       select * from tbl_board order by tno desc limit ${skip},${amount}
+	 </select>
+	
+	<insert id="create" parameterType="org.starbucks.domain.StarbucksVO">
+	
+		insert into tbl_board(tname,twriter,tcontent) values (#{tname},#{twriter},#{tcontent})
+		
+	</insert>
+	
+	<select id="gettotal" resultType="int">
+	select count(*) from tbl_board
+	</select>
+	
+	<select id="getone" parameterType="org.starbucks.domain.StarbucksVO" resultType="org.starbucks.domain.StarbucksVO">
+	 select * from tbl_board where tno=${tno}
+	</select>
+
+</mapper>
+
+
