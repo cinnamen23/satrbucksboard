@@ -58,7 +58,7 @@ public void create(){
 	  
 	  return "redirect:/star/list?msg=success";
   }
-  
+  //tatata
   @GetMapping("/sub")
   public void showsub(Model model,StarbucksVO vo){
 	  
