@@ -63,12 +63,12 @@
 			  <form>
 			    <div class="input-group">
 			      <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-			      <input id="email" type="text" class="form-control" name="tname" placeholder="Email"value=${vo.tname}>
+			      <input id="tname" type="text" class="form-control" name="tname" placeholder="Email"value=${vo.tname}>
 			    </div>
 			    <br>
 			    <div class="input-group">
 			      <span class="input-group-addon">Text</span>
-			      <input id="msg" type="text" class="form-control" name="tcontent" placeholder="Additional Info" value=${vo.tcontent}>
+			      <input id="tcontent" type="text" class="form-control" name="tcontent" placeholder="Additional Info" value=${vo.tcontent}>
 			    </div>
 			  </form>
         </div>
@@ -78,14 +78,36 @@
       </div>
     </div>
   </div>
-
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+  
 <script>
-$(document).on(function(){
-	
+$(document).ready(function(){
 	
 	$(".modal-footer button").on("click",function(e){	
 		e.preventDefault();
-		console.log("수정하시겠습니까?");
+
+		console.log($("#tname").val());
+		console.log($("#tcontent").val());
+		console.log(${vo.tno});
+		
+		$.ajax({
+			url:"/star/modi",
+			type:"post",
+			data:{
+				tno:${vo.tno},
+				tname:$("#tname").val(),
+				tcontent:$("#tcontent").val()
+			},success:function(re){
+			alert("수정 성공적");
+			location.href="/star/list";
+			
+			}
+		})
+		
+		
 	});
 	
 });

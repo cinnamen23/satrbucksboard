@@ -26,6 +26,12 @@ public class StarbucksServiceImpl implements StarbucksService {
 	public void create(StarbucksVO vo) {
 		dao.create(vo);
 	}
+
+
+	@Override
+	public void modify(StarbucksVO vo) {
+		dao.modify(vo);
+	}
 	
 	
 

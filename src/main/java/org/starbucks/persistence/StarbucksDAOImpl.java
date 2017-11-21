@@ -47,4 +47,10 @@ public class StarbucksDAOImpl implements StarbucksDAO {
 		return sess.selectOne(namespace+".getone", vo);
 	}
 
+	@Override
+	public void modify(StarbucksVO vo) {
+		sess.update(namespace+".modify",vo);
+		
+	}
+
 }

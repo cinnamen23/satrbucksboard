@@ -17,4 +17,6 @@ public interface StarbucksDAO {
 	
 	public StarbucksVO getone(StarbucksVO vo);
 	
+	public void modify(StarbucksVO vo);
+	
 }

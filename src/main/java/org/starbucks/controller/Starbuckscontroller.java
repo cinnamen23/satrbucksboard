@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.starbucks.domain.Criteria;
 import org.starbucks.domain.PageMaker;
 import org.starbucks.domain.StarbucksVO;
@@ -68,6 +69,14 @@ public void create(){
 	  
 	  model.addAttribute("vo", dao.getone(vo));
   }
+  
+  @PostMapping("/modi")
+  public @ResponseBody String modisub(StarbucksVO vo) {
+	  logger.info("post modi......");
+	 logger.info(vo); 
+	 service.modify(vo);
+	 return "success";
+  } 
   
 	
 }

@@ -12,5 +12,6 @@ public interface StarbucksService {
 	
 	public void create(StarbucksVO vo);
 	
+	public void modify(StarbucksVO vo);
 	
 }
